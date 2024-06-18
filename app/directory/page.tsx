@@ -1,5 +1,6 @@
 import { personalData } from '../components/utils/personal-data';
 import AboutSection from '../components/About/about';
+import Skills from '../components/Skills/skills';
 
 export default async function Home() {
   return (
@@ -9,11 +10,14 @@ export default async function Home() {
         minHeight: '100vh',
         padding: '20px',
         display: 'flex',
+        flexDirection: 'column', // Change to column layout
         justifyContent: 'center',
         alignItems: 'center'
       }}
     >
       <AboutSection />
+      <Skills/>
     </div>
   );
 }
+
