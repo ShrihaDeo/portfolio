@@ -1,0 +1,39 @@
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+    height: 100vh;
+  }
+  
+  .waveText {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 4rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+    
+  @keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  .waveAnimation {
+    animation: wave 1s infinite;
+  }
+  
+  .letter {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typewriter 1s forwards;
+    margin-right: 5px; /* Adjust the margin as needed */
+  letter-spacing: 0.2rem; /* Adjust letter spacing here */
+  }
+  
