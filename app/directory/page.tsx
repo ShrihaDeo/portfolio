@@ -2,6 +2,7 @@ import { personalData } from '../components/utils/personal-data';
 import AboutSection from '../components/About/about';
 import Skills from '../components/Skills/skills';
 import Link from 'next/link';
+import HelloSerah from '../components/Top/top';
 
 export default async function Home() {
   return (
@@ -18,10 +19,11 @@ export default async function Home() {
     >
       <Link href={ '../components/Game' }>
       <button>
-        Play a Game!
+        Play a Guessing Game!
       </button>
       </Link>
       
+      <HelloSerah/>
       <AboutSection />
       <Skills/>
     </div>

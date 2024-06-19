@@ -1,129 +1,114 @@
+// pages/index.tsx
 'use client'
+import { useState } from 'react';
 import Head from 'next/head';
-import { useEffect, useState, useRef } from 'react';
 
-export default function Home() {
-  const canvasRef = useRef<HTMLCanvasElement>(null); // Explicitly define canvasRef type
-  const [visibleLetters, setVisibleLetters] = useState<number>(0); // Explicitly define visibleLetters type
-  const [waveAnimation, setWaveAnimation] = useState<boolean>(false); // Explicitly define waveAnimation type
+const Home = () => {
+  const [targetNumber, setTargetNumber] = useState<number>(Math.floor(Math.random() * 100) + 1);
+  const [guess, setGuess] = useState<number | null>(null);
+  const [message, setMessage] = useState<string>('');
+  const [attempts, setAttempts] = useState<number>(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVisibleLetters((prev) => prev + 1);
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    // Start waving animation when all letters are visible
-    if (visibleLetters === 'Welcome to My Portfolio :)'.length) {
-      setWaveAnimation(true);
-      startSnakeGame();
+  const handleGuess = () => {
+    if (guess === null) {
+      setMessage('Please enter a number.');
+      return;
     }
-  }, [visibleLetters]);
 
-  const startSnakeGame = () => {
-    const canvas = canvasRef.current;
-    if (!canvas) return; // Check if canvas reference is available
-    const ctx = canvas.getContext('2d');
+    setAttempts(attempts + 1);
 
-    const snakeSize: number = 10;
-    const snakeColor: string = 'green';
-    let snake: { x: number; y: number }[] = [{ x: 100, y: 100 }]; // Initial snake position
-    let food: { x: number; y: number } = { x: 200, y: 200 }; // Initial food position
-    let dx: number = snakeSize;
-    let dy: number = 0;
+    if (guess < targetNumber) {
+      setMessage('Too low! Try again.');
+    } else if (guess > targetNumber) {
+      setMessage('Too high! Try again.');
+    } else {
+      setMessage(`Congratulations! You guessed the number in ${attempts + 1} attempts.`);
+    }
+  };
 
-    const drawSnake = () => {
-        if (ctx != null){
-            ctx.fillStyle = snakeColor;
-            snake.forEach((segment) => {
-              ctx.fillRect(segment.x, segment.y, snakeSize, snakeSize);
-            });
-        }
-    
-    };
-
-    const drawFood = () => {
-        if (ctx != null)
-            {
-                ctx.fillStyle = 'red';
-      ctx.fillRect(food.x, food.y, snakeSize, snakeSize);
-            }
-      
-    };
-
-    const moveSnake = () => {
-      const head = { x: snake[0].x + dx, y: snake[0].y + dy };
-
-      // Check if snake eats food
-      if (head.x === food.x && head.y === food.y) {
-        snake.unshift(head);
-        generateFood();
-      } else {
-        snake.pop();
-        snake.unshift(head);
-      }
-
-      checkCollision();
-    };
-
-    const generateFood = () => {
-      const randomX = Math.floor(Math.random() * (canvas.width / snakeSize)) * snakeSize;
-      const randomY = Math.floor(Math.random() * (canvas.height / snakeSize)) * snakeSize;
-      food = { x: randomX, y: randomY };
-    };
-
-    const checkCollision = () => {
-      const head = snake[0];
-
-      // Check if snake hits canvas boundaries
-      if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height) {
-        gameOver();
-        return;
-      }
-
-      // Check if snake hits itself
-      for (let i = 1; i < snake.length; i++) {
-        if (head.x === snake[i].x && head.y === snake[i].y) {
-          gameOver();
-          return;
-        }
-      }
-    };
-
-    const gameOver = () => {
-      clearInterval(gameInterval);
-      alert('Game Over! Refresh the page to play again.');
-    };
-
-    const gameLoop = () => {
-        if (ctx != null)
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      moveSnake();
-      drawSnake();
-      drawFood();
-    };
-
-    generateFood(); // Generate initial food
-    const gameInterval = setInterval(gameLoop, 100); // Game loop with 100ms interval
+  const handleReset = () => {
+    setTargetNumber(Math.floor(Math.random() * 100) + 1);
+    setGuess(null);
+    setMessage('');
+    setAttempts(0);
   };
 
   return (
-    <div
-      style={{
-        background: 'linear-gradient(to right, #fbc2eb, #a6c1ee)',
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'relative',
-      }}
-    >        
-
-      {/* Canvas for snake game */}
-      <canvas ref={canvasRef} width={800} height={600} style={{ border: '2px solid black' }} />
+    <div style={styles.container}>
+      <Head>
+        <title>Guess the Number Game</title>
+      </Head>
+      <h1 style={styles.title}>Guess the Number</h1>
+      <p style={styles.instructions}>Guess a number between 1 and 100</p>
+      <input
+        type="number"
+        value={guess ?? ''}
+        onChange={(e) => setGuess(Number(e.target.value))}
+        style={styles.input}
+      />
+      <button onClick={handleGuess} style={styles.button}>Guess</button>
+      <button onClick={handleReset} style={styles.resetButton}>Reset</button>
+      <p style={styles.message}>{message}</p>
     </div>
   );
-}
+};
+
+const styles: { [key: string]: React.CSSProperties } = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    background: 'linear-gradient(to bottom right, #ffd1dc, #ffb6c1, #ffa6b2, #b6e0ff, #a6daff, #b6e0ff, #a6daff, #ffc6c6, #ffe6e6)',
+    padding: '0 20px',
+    textAlign: 'center',
+  },
+  title: {
+    fontSize: '2.5rem',
+    color: '#333',
+    marginBottom: '1rem',
+  },
+  instructions: {
+    fontSize: '1.2rem',
+    color: '#666',
+    marginBottom: '1rem',
+  },
+  input: {
+    padding: '10px',
+    fontSize: '1rem',
+    marginBottom: '1rem',
+    border: '2px solid #ccc',
+    borderRadius: '5px',
+    textAlign: 'center',
+    color: 'black', // Black text color for input text
+  },
+  button: {
+    padding: '10px 20px',
+    fontSize: '1rem',
+    backgroundColor: '#0070f3',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    marginBottom: '1rem',
+  },
+  resetButton: {
+    padding: '10px 20px',
+    fontSize: '1rem',
+    backgroundColor: '#e53e3e',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    marginBottom: '1rem',
+  },
+  message: {
+    fontSize: '1.2rem',
+    color: '#333',
+    marginTop: '1rem',
+  },
+};
+
+
+export default Home;
