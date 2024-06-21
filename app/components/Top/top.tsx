@@ -38,12 +38,14 @@ const HelloSerah = () => {
           font-weight: bold;
           text-align: center;
           color: darkblue;
+          font-family: monotone;
         }
 
         .text2 {
           font-size: 3rem; /* Increased size */
           font-weight: bold;
           text-align: center;
+          font-family: monotone;
         }
 
         .animation img {
