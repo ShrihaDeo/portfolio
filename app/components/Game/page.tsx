@@ -60,7 +60,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     alignItems: 'center',
     justifyContent: 'center',
     height: '100vh',
-    background: 'linear-gradient(to bottom right, #ffd1dc, #ffb6c1, #ffa6b2, #b6e0ff, #a6daff, #b6e0ff, #a6daff, #ffc6c6, #ffe6e6)',
+    background: 'linear-gradient(to right, #a1c4fd, #fbc2eb)',
     padding: '0 20px',
     textAlign: 'center',
   },
