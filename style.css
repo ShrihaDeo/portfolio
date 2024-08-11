@@ -1,0 +1,122 @@
+
+body {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    height: 100vh; /* Full height of the viewport */
+    margin: 5vw; /* Remove default margin */
+    background: linear-gradient(135deg, #AEC6CF, #F49AC2, #B19CD9); /* Pastel blue, pink, and purple gradient */
+    color: white; /* Text color */
+    font-size: 2rem; /* Text size */
+    text-align: center; /* Center text alignment */
+}
+
+.homepageContain{
+    align-items: center; /* Center vertically */
+}
+
+#clickable-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #AEC6CF, #F49AC2, #B19CD9); /* Pastel blue, pink, and purple gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+}
+
+div{
+    flex-direction: column; 
+    padding: 1vw;
+}
+
+/* style.css */
+.navgrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Create 2 equal columns */
+    grid-template-rows: repeat(2, 1fr); /* Create 2 equal rows */
+    gap: 5vw; /* Space between grid items */
+    text-align: center; /* Center text horizontally in each box */
+}
+
+.navbox {
+    background-color: rgb(214, 127, 255); /* Background color of boxes */
+    display: flex; /* Use Flexbox to center content inside each box */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    font-style: italic; /* Italicize the text */
+    text-align: center; /* Ensure text is centered inside the box */
+    padding: 3vw;
+    border-radius: 20%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    aspect-ratio: 1;
+}
+
+.navbox:hover {
+    transform: scale(1.1); /* Expand the box by 10% on hover */
+}
+
+
+/* style.css */
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); 
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+h1, h2 {
+    animation: float 3s ease-in-out infinite; 
+}
+
+.navcontent{
+    max-width: 30%;
+    justify-content: center;
+    text-align: center;
+    flex: content;
+    padding: 5vw;
+}
+
+.navbox a {
+    display: flex; /* Use flexbox to center content */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    text-align: center; /* Center text alignment */
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent */
+    height: 100%; /* Ensure the link takes the full height of its container */
+    width: 100%; /* Ensure the link takes the full width of its container */
+    box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+}
+
+/* Style for the nav button */
+.nav-button {
+    position: relative; /* Fix the button in place */
+    background-color: #33083b; /* Background color of the button */
+    border: none; /* Remove default button border */
+    border-radius: 50%; /* Make the button round */
+    width: 50px; /* Button width */
+    height: 50px; /* Button height */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for a subtle 3D effect */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+    flex-direction: column;
+    color: white; /* Text color */
+}
+
+/* Hover effect for the button */
+.nav-button:hover {
+    background-color: #2a063a; /* Change background color on hover */
+    transform: scale(1.1); /* Slightly increase the button size */
+}
