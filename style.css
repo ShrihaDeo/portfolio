@@ -120,3 +120,50 @@ h1, h2 {
     background-color: #2a063a; /* Change background color on hover */
     transform: scale(1.1); /* Slightly increase the button size */
 }
+
+.gap{
+    padding: 20vw;
+    display: flex;
+}
+
+
+p{
+    text-align: justify;
+}
+
+/* style.css */
+.projgrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Create 2 equal columns */
+    gap: 5vw; /* Space between grid items */
+    text-align: center; /* Center text horizontally in each box */
+}
+
+.projbox {
+    background-color: rgb(155, 127, 255); /* Background color of boxes */
+    display: flex; /* Use Flexbox to center content inside each box */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    font-style: italic; /* Italicize the text */
+    text-align: center; /* Ensure text is centered inside the box */
+    padding: 3vw;
+    border-radius: 20%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+    aspect-ratio: 1;
+}
+
+.projbox:hover {
+    transform: scale(1.1); /* Expand the box by 10% on hover */
+}
+
+.projbox a {
+    display: flex; /* Use flexbox to center content */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    text-align: center; /* Center text alignment */
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent */
+    height: 100%; /* Ensure the link takes the full height of its container */
+    width: 100%; /* Ensure the link takes the full width of its container */
+    box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+}
