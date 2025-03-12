@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> 
-            Education Page
-        </title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracurricular | My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <body>
-        <div>
-        <button class="nav-button" onclick="window.location.href='navigation.html'">H</button>
-        <button class="nav-button" onclick="window.location.href='skills.html'">S</button>
-        <button class="nav-button" onclick="window.location.href='projects.html'">P</button>
-        <button class="nav-button" onclick="window.location.href='extracurricular.html'">E</button>
-        
-            <h3>Extracurricular</h3>
-            <img src="Images/banner.gif">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <button class="nav-button" onclick="window.location.href='index.html'">Home</button>
+        <button class="nav-button" onclick="window.location.href='navigation.html'">Navigation</button>
+        <button class="nav-button" onclick="window.location.href='education.html'">Education</button>
+        <button class="nav-button" onclick="window.location.href='skills.html'">Skills</button>
+        <button class="nav-button" onclick="window.location.href='projects.html'">Projects</button>
+    </nav>
+
+    <main>
+        <section class="extracurricular-section">
+            <h1>✨ Extracurricular Activities</h1>
+
+            <div class="content-container">
+            <div class="activity-card">
+                <img src="Images/sports.gif" alt="Badminton">
+                <div>
+                    <h2>Badminton</h2>
+                    <p>Playing badminton is one of my favorite hobbies. It keeps me fit and helps me take a healthy break from academics while having fun!</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <img src="Images/networking.gif" alt="Social Media Manager">
+                <div>
+                    <h2>Social Media Manager</h2>
+                    <p>I manage the Women in STEM Club’s social media accounts, creating engaging content and promoting events. Check them out here: https://www.instagram.com/waikatowistem/</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <img src="Images/reading.gif" alt="Reading">
+                <div>
+                    <h2>Reading</h2>
+                    <p>Avid reader of fantasy and mystery novels. Books are my escape, inspiring creativity and imagination.</p>
+                </div>
+            </div>
         </div>
-        
+        </section>
+    </main>
 
-    </body>
+</body>
 </html>

@@ -1,34 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> 
-            Education Page
-        </title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <body>
-        <div>
-        <button class="nav-button" onclick="window.location.href='navigation.html'">H</button>
-        <button class="nav-button" onclick="window.location.href='skills.html'">S</button>
-        <button class="nav-button" onclick="window.location.href='projects.html'">P</button>
-        <button class="nav-button" onclick="window.location.href='extracurricular.html'">E</button>
-        
-            <h3>Skills</h3>
-            <p> C#</p>
-            <p> C</p>
-            <p> Java</p>
-            <p> SQL</p>
-            <p> HTML</p>
-            <p> CSS</p>
-            <p> JavaScript</p>
-            <p> TypeScript</p>
-            
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <button class="nav-button" onclick="window.location.href='index.html'">Home</button>
+        <button class="nav-button" onclick="window.location.href='navigation.html'">Navigation</button>
+        <button class="nav-button" onclick="window.location.href='education.html'">Education</button>
+        <button class="nav-button" onclick="window.location.href='projects.html'">Projects</button>
+        <button class="nav-button" onclick="window.location.href='extracurricular.html'">Extracurricular</button>
+    </nav>
 
-        </div>
-        
+    <main>
+        <section class="skills-web">
+            <h1>💡 My Skills</h1>
 
-    </body>
+            <div class="skill-card">
+                <h2>Technical Skills</h2>
+                <div class="chart-container">
+                    <canvas id="technical-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h2>Professional Skills</h2>
+                <div class="chart-container">
+                    <canvas id="professional-chart"></canvas>
+                </div>
+            </div>
+
+            <div class="skill-card">
+                <h2>Personal Skills</h2>
+                <div class="chart-container">
+                    <canvas id="personal-chart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Data for Technical Skills
+        const technicalSkills = new Chart(document.getElementById('technical-chart'), {
+            type: 'radar',
+            data: {
+                labels: ['C++', 'Python', 'JavaScript', 'C#', 'ARM GCC', 'SQL'],
+                datasets: [{
+                    label: 'Proficiency (%)',
+                    data: [85, 90, 88, 75, 80, 70],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#ffffff',
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: { color: '#ffffff' },
+                        grid: { color: 'rgba(255, 255, 255, 0.5)' },
+                        ticks: { display: false },
+                    }
+                }
+            }
+        });
+
+        // Data for Professional Skills
+        const professionalSkills = new Chart(document.getElementById('professional-chart'), {
+            type: 'radar',
+            data: {
+                labels: ['Leadership', 'Communication', 'Teamwork', 'Project Management', 'Adaptability'],
+                datasets: [{
+                    label: 'Proficiency (%)',
+                    data: [80, 90, 85, 75, 88],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#ffffff',
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: { color: '#ffffff' },
+                        grid: { color: 'rgba(255, 255, 255, 0.5)' },
+                        ticks: { display: false },
+                    }
+                }
+            }
+        });
+
+        // Data for Personal Skills
+        const personalSkills = new Chart(document.getElementById('personal-chart'), {
+            type: 'radar',
+            data: {
+                labels: ['Creativity', 'Problem Solving', 'Critical Thinking', 'Time Management', 'Self-Motivation'],
+                datasets: [{
+                    label: 'Proficiency (%)',
+                    data: [85, 90, 80, 78, 88],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: '#ffffff',
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: { color: '#ffffff' },
+                        grid: { color: 'rgba(255, 255, 255, 0.5)' },
+                        ticks: { display: false },
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
 </html>
