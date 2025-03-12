@@ -1,32 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> 
-            Education Page
-        </title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <body>
-        <div>
-        <button class="nav-button" onclick="window.location.href='navigation.html'">H</button>
-        <button class="nav-button" onclick="window.location.href='skills.html'">S</button>
-        <button class="nav-button" onclick="window.location.href='projects.html'">P</button>
-        <button class="nav-button" onclick="window.location.href='extracurricular.html'">E</button>
-        
-            <h3>Projects</h3>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <button class="nav-button" onclick="window.location.href='index.html'">Home</button>
+        <button class="nav-button" onclick="window.location.href='navigation.html'">Navigation</button>
+        <button class="nav-button" onclick="window.location.href='education.html'">Education</button>
+        <button class="nav-button" onclick="window.location.href='skills.html'">Skills</button>
+        <button class="nav-button" onclick="window.location.href='extracurricular.html'">Extracurricular</button>
+    </nav>
+
+    <main>
+        <section class="education-section">
+            <h1>🚀 My Projects</h1>
+
             <div class="projgrid">
-                <div class="projbox"> <a href = "Projects/ouat.html"> Once Upon A time </a></div>
-                <div class="projbox"> <a href = "Projects/weather.html"> Weather App </a></div>
-                <div class="projbox"> <a href = "Projects/circuits.html"> Circuits </a></div>
-                <div class="projbox"> <a href = "Projects/flammerouge.html"> Flamme Rouge </a> </div>
-                <div class="projbox"> <a href = "Projects/minesweeper.html"> Minesweeper </a> </div>
-            
-            </div>
-        </div>
-        
+                <div class="projbox">
+                    <a href="Projects/ouat.html">
+                        <img src="Images/ouat gif.gif" alt="Once Upon A Time">
+                        Once Upon A Time
+                    </a>
+                </div>
 
-    </body>
+                <div class="projbox">
+                    <a href="Projects/weather.html">
+                        <img src="Images/weather.gif" alt="Weather App">
+                        Weather App
+                    </a>
+                </div>
+
+                <div class="projbox">
+                    <a href="Projects/circuits.html">
+                        <img src="Images/circuits.gif" alt="Circuits">
+                        Circuits
+                    </a>
+                </div>
+
+                <div class="projbox">
+                    <a href="Projects/flammerouge.html">
+                        <img src="Images/fr.gif" alt="Flamme Rouge">
+                        Flamme Rouge
+                    </a>
+                </div>
+
+                <div class="projbox">
+                    <a href="Projects/minesweeper.html">
+                        <img src="Images/minesweeper.gif" alt="Minesweeper">
+                        Minesweeper
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
 </html>

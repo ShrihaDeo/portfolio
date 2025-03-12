@@ -1,17 +1,12 @@
-
 body {
     display: flex;
     justify-content: center; /* Center horizontally */
     height: 100vh; /* Full height of the viewport */
     margin: 5vw; /* Remove default margin */
-    background: linear-gradient(135deg, #AEC6CF, #F49AC2, #B19CD9); /* Pastel blue, pink, and purple gradient */
+    background: #ff9eca;
     color: white; /* Text color */
     font-size: 2rem; /* Text size */
     text-align: center; /* Center text alignment */
-}
-
-.homepageContain{
-    align-items: center; /* Center vertically */
 }
 
 #clickable-area {
@@ -19,7 +14,7 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 120vh;
     background: linear-gradient(135deg, #AEC6CF, #F49AC2, #B19CD9); /* Pastel blue, pink, and purple gradient */
     display: flex;
     justify-content: center;
@@ -30,12 +25,12 @@ body {
     cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
 }
 
-div{
+div {
     flex-direction: column; 
     padding: 1vw;
 }
 
-/* style.css */
+/* Navigation grid styles */
 .navgrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Create 2 equal columns */
@@ -61,8 +56,9 @@ div{
     transform: scale(1.1); /* Expand the box by 10% on hover */
 }
 
-
-/* style.css */
+h1, h2 {
+    animation: float 3s ease-in-out infinite; 
+}
 
 @keyframes float {
     0% {
@@ -76,11 +72,7 @@ div{
     }
 }
 
-h1, h2 {
-    animation: float 3s ease-in-out infinite; 
-}
-
-.navcontent{
+.navcontent {
     max-width: 30%;
     justify-content: center;
     text-align: center;
@@ -100,71 +92,306 @@ h1, h2 {
     box-sizing: border-box; /* Ensure padding and border are included in the width and height */
 }
 
-/* Style for the nav button */
-.nav-button {
-    position: relative; /* Fix the button in place */
-    background-color: #33083b; /* Background color of the button */
-    border: none; /* Remove default button border */
-    border-radius: 50%; /* Make the button round */
-    width: 50px; /* Button width */
-    height: 50px; /* Button height */
-    cursor: pointer; /* Pointer cursor on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for a subtle 3D effect */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
-    flex-direction: column;
-    color: white; /* Text color */
-}
-
-/* Hover effect for the button */
-.nav-button:hover {
-    background-color: #2a063a; /* Change background color on hover */
-    transform: scale(1.1); /* Slightly increase the button size */
-}
-
-.gap{
-    padding: 20vw;
-    display: flex;
-}
-
-
-p{
+p {
     text-align: justify;
 }
 
-/* style.css */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* Stack elements vertically */
+        margin: 2vw; /* Adjust margin for smaller screens */
+    }
+
+    .navgrid {
+        grid-template-columns: 1fr; /* Single column layout */
+        gap: 3vw; /* Reduce spacing between items */
+    }
+
+    .navbox {
+        width: 90%; /* Full width with some padding */
+        margin: 0 auto; /* Center horizontally */
+    }
+
+    .navcontent {
+        max-width: 100%; /* Use full width */
+        padding: 2vw; /* Reduce padding for smaller screens */
+    }
+
+    h1, h2 {
+        font-size: 1.5rem; /* Adjust font size for readability */
+    }
+}
+
+/* Compact Navigation Bar */
+/* Thicker Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px; /* Increased padding for thickness */
+    background: linear-gradient(135deg, #F49AC2, #B19CD9);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+
+.nav-button {
+    background-color: white;
+    color: #B19CD9;
+    font-size: 1rem;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-button:hover {
+    background-color: #F49AC2;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Push content down so it doesn't get hidden under the fixed navbar */
+main {
+    padding-top: 60px;
+}
+
+
+/* Education Page Styling */
+.education-section {
+    text-align: center;
+    padding: 50px 10%;
+}
+
+.education-section h1 {
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.card {
+    background: white;
+    color: #5a2d82;
+    border: 3px solid #B19CD9;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 700px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    color: #B19CD9;
+}
+
+.card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .education-section {
+        padding: 30px 5%;
+    }
+
+    .nav-button {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}
+/* Projects Grid */
 .projgrid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Create 2 equal columns */
-    gap: 5vw; /* Space between grid items */
-    text-align: center; /* Center text horizontally in each box */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 0;
+    width: 100%;
 }
 
+/* Extra Extra Wide Project Boxes */
 .projbox {
-    background-color: rgb(155, 127, 255); /* Background color of boxes */
-    display: flex; /* Use Flexbox to center content inside each box */
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
-    font-style: italic; /* Italicize the text */
-    text-align: center; /* Ensure text is centered inside the box */
-    padding: 3vw;
-    border-radius: 20%;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-    aspect-ratio: 1;
+    background: linear-gradient(135deg, #FFC0CB, #FFB6C1); /* Soft pink shades */
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%; /* Full width */
+    max-width: none; /* No width limit */
+    gap: 25px;
 }
 
-.projbox:hover {
-    transform: scale(1.1); /* Expand the box by 10% on hover */
+/* Project Images */
+.projbox img {
+    width: 120px; /* Bigger images */
+    height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
+/* Styling for project links */
 .projbox a {
-    display: flex; /* Use flexbox to center content */
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    text-align: center; /* Center text alignment */
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit color from parent */
-    height: 100%; /* Ensure the link takes the full height of its container */
-    width: 100%; /* Ensure the link takes the full width of its container */
-    box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    width: 100%;
 }
 
+/* Hover effect */
+.projbox:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .projbox {
+        font-size: 1.5rem;
+    }
+
+    .projbox img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Skills Section */
+.skills-web {
+    text-align: center;
+    padding: 50px 2%;
+}
+
+/* Maximum Width Skill Cards */
+.skill-card {
+    background: rgb(220, 184, 231);
+    color: #5a2d82;
+    border: 3px solid #B19CD9;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%; /* Full width */
+    max-width: 100%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Chart Container inside Cards */
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skills-web {
+        padding: 20px 2%;
+    }
+
+    .skill-card {
+        width: 100%;
+    }
+}
+
+/* Extracurricular Section */
+.extracurricular-section {
+    text-align: center;
+    padding: 50px 5%;
+}
+
+/* Activity Cards */
+.activity-card {
+    background: white;
+    color: #5a2d82;
+    border: 3px solid #B19CD9;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px; /* Wide for better readability */
+    width: 95%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Hover effect */
+.activity-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Activity Images */
+.activity-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Text inside cards */
+.activity-card div {
+    text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .extracurricular-section {
+        padding: 30px 3%;
+    }
+
+    .activity-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .activity-card img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Generic container for extra spacing on selected pages */
+.content-container {
+    max-width: 70%;
+    margin: 0 auto;
+    padding: 5vw;
+}
+
+img, gif {
+    width: 50%; /* Reduce width to 50% of the container */
+    height: auto; /* Maintain aspect ratio */
+}
